@@ -83,7 +83,7 @@
       }
     },
     "typedef": [
-      true,
+      false,
       "call-signature"
     ],
     "typedef-whitespace": {
@@ -121,6 +121,7 @@
         "check-typecast"
       ]
     },
+    "no-string-literal": false,
     "component-class-suffix": true,
     "contextual-lifecycle": true,
     "directive-class-suffix": true,
@@ -136,6 +137,7 @@
     "template-no-negated-async": true,
     "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true,
+    "max-line-length": false,
     "directive-selector": [
       true,
       "attribute",

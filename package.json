@@ -19,7 +19,11 @@
     "@angular/platform-browser": "~11.0.4",
     "@angular/platform-browser-dynamic": "~11.0.4",
     "@angular/router": "~11.0.4",
+    "@angular/service-worker": "~11.0.4",
+    "admin-lte": "^3.0.5",
+    "animate.css": "^4.1.1",
     "rxjs": "~6.6.0",
+    "sweetalert2": "^10.12.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },

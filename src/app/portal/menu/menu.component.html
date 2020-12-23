@@ -1,0 +1,80 @@
+<aside class="main-sidebar sidebar-light-warning elevation-4">
+    <a class="brand-link navbar-dark">
+        <img src="assets/img/casco.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light" style="color: floralwhite;">Engineering Solutions</span>
+    </a>
+    <div class="sidebar">
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img [src]="auth.usuarioLogueado['rutaFotoUsuario']" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <p class="d-block" style="font-size: 15px !important;">{{auth.usuarioLogueado['nombreUsuario'] + ' ' + auth.usuarioLogueado['apellidoPaterno'] | uppercase}} <br> <span style="font-size: 13px !important;">{{auth.usuarioLogueado['nombreTipoUsuario']}}</span> </p>
+            </div>
+        </div>
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column text-sm" data-widget="treeview" role="menu" data-accordion="true" *ngIf="auth.isAuthenticated()">
+                <li class="nav-item" *ngIf="auth.obtenerPermiso(1)">
+                    <a routerLink="home" [ngClass]="auth.mInicio">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>Inicio</p>
+                    </a>
+                </li>
+                <li class="nav-item" *ngIf="auth.obtenerPermiso(1)">
+                    <a routerLink="administracion-archivos" [ngClass]="auth.mAdministracionArchivos">
+                        <i class="nav-icon fas fa-archive"></i>
+                        <p>Administrar Archivos</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="reportes" [ngClass]="auth.mReportes">
+                        <i class="nav-icon fas fa-chart-bar"></i>
+                        <p>Reportes</p>
+                    </a>
+                </li>
+                <li [ngClass]="auth.lAdmin">
+                    <a style="cursor: pointer;" [ngClass]="auth.mAdmin">
+                        <i class="nav-icon fas fa-cog"></i>
+                        <p>Administración <i class="right fas fa-angle-left"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a routerLink="administracion-sensores" [ngClass]="auth.mAdministracionSensores">
+                                <i class="fa fa-minus nav-icon"></i>
+                                <p>Sensores</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a routerLink="administracion-reportes" [ngClass]="auth.mAdministracionReportes">
+                                <i class="fa fa-minus nav-icon"></i>
+                                <p>Reportes</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li [ngClass]="auth.lSuperAdmin">
+                    <a style="cursor: pointer;" [ngClass]="auth.mSuperAdmin">
+                        <i class="nav-icon fas fa-cogs"></i>
+                        <p>Super Administrador <i class="right fas fa-angle-left"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a routerLink="configuracion" [ngClass]="auth.mConfiguracion">
+                                <i class="fa fa-minus nav-icon"></i>
+                                <p>Configuración</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a style="cursor: pointer;" class="nav-link" (click)="auth.logout()">
+                        <i class="nav-icon fas fa-sign-out-alt"></i>
+                        <p>Cerrar sesión</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>

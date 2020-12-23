@@ -1,0 +1,54 @@
+<div class="content-wrapper">
+    <section class="content" style="padding-top: 10px;">
+        <div class="container-fluid">
+            <div class="row">
+                <section class="col-lg-12 connectedSortable">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-home mr-1"></i> ¡BIENVENIDO {{auth.usuarioLogueado['nombreUsuario'] + ' ' + auth.usuarioLogueado['apellidoPaterno'] | uppercase}}!
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h6>Accesos Rapidos</h6>
+                                    <div class="col-md-12">
+                                        <a (click)="abrirPanelProcesarDatos()" class="btn btn-app" style="cursor: pointer;">
+                                            <i class="fas fa-cloud-upload-alt"></i> Procesar Datos
+                                        </a>
+                                        <a (click)="abrirAdministracionArchivos()" class="btn btn-app" style="cursor: pointer;">
+                                            <i class="fas fa-archive"></i> Consultar Archivos
+                                        </a>
+                                        <a (click)="abrirPanelSensores()" class="btn btn-app" style="cursor: pointer;">
+                                            <i class="fas fa-weight"></i> Nuevo Sensor
+                                        </a>
+                                        <a (click)="abrirAdministracionSensores()" class="btn btn-app" style="cursor: pointer;">
+                                            <i class="fas fa-weight"></i> Consultar Sensores
+                                        </a>
+                                        <a (click)="abrirReportes()" class="btn btn-app" style="cursor: pointer;">
+                                            <i class="fas fa-chart-bar"></i> Consultar Reportes
+                                        </a>
+                                        <a (click)="abrirAdministracionReportes()" class="btn btn-app" style="cursor: pointer;">
+                                            <i class="fas fa-chart-bar"></i> Administrar Reportes
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" *ngIf="obtenerPermiso(4)">
+                                    <h6>Super Administrador</h6>
+                                    <div class="col-md-6">
+                                        <a [routerLink]="['/configuracion']" class="btn btn-app" *ngIf="obtenerPermiso(4)" style="cursor: pointer;">
+                                            <i class="fas fa-cogs"></i> Configuración
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</div>
+<app-procesar-archivo></app-procesar-archivo>
+<app-sensor></app-sensor>
